@@ -1,15 +1,7 @@
-const path = require('path');
+import type { NextConfig } from "next";
 
-module.exports = {
-  webpack(config) {
-    // Відфільтрувати системні папки з watch або module.rules, якщо потрібно
-    config.watchOptions = {
-      ignored: [
-        '**/node_modules',
-        'C:/Users/radik/Application Data/**',
-        'C:/Users/radik/Cookies/**',
-      ],
-    };
-    return config;
-  },
+const nextConfig: NextConfig = {
+  /* config options here */
 };
+
+export default nextConfig;
