@@ -1,7 +1,8 @@
 import { getAuth } from "@clerk/nextjs/server";
 import { prisma } from "@/lib/prisma";
+import { NextRequest } from "next/server"
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const { userId, sessionClaims } = getAuth(req);
 
   if (!userId) {
