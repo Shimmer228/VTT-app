@@ -17,14 +17,17 @@ export async function POST(req: Request) {
   }
 
   if (event.type === "checkout.session.completed") {
-    const session = event.data.object;
-    const userId = session.metadata.userId;
-    console.log(session.metadata)
+    const session = event.data.object as Stripe.Checkout.Session;
+
+    const userId = session.metadata?.userId;
+    console.log(session.metadata);
+
     if (userId) {
-    await prisma.user.update({
-      where: { id: userId },
-      data: { isPaid: true },
-    });
+      await prisma.user.update({
+        where: { id: userId },
+        data: { isPaid: true },
+      });
+    }
   }
 
     console.log(`User ${userId} marked as paid`);
