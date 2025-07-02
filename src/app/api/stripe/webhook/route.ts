@@ -28,7 +28,6 @@ export async function POST(req: Request) {
         data: { isPaid: true },
       });
     }
-  }
 
     console.log(`User ${userId} marked as paid`);
   }
