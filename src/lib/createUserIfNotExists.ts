@@ -5,10 +5,10 @@
       const existing = await prisma.user.findUnique({
         where: { clerkId: clerkUserId }
       });
-
       if (existing) return;
 
-      const clerkUser = await clerkClient.users.getUser(clerkUserId);
+      const client = await clerkClient();
+      const clerkUser = await client.users.getUser(clerkUserId);
       const email = clerkUser.emailAddresses[0]?.emailAddress || null;
 
       await prisma.user.create({
