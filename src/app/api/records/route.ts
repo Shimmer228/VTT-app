@@ -4,8 +4,12 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function GET(req: NextRequest) {
     console.log("record route HIT");
-  const { userId } = await auth(req);
+const authResult = await auth(req);
+const userId = "userId" in authResult ? authResult.userId : null;
 
+if (!userId) {
+  return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+}
   const user = await prisma.user.findUnique({
     where: { clerkId: userId },
   });
