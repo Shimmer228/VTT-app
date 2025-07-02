@@ -1,15 +1,4 @@
-// import "../globals.css";
-// import { ClerkProvider } from "@clerk/nextjs";
-// import { Inter } from "next/font/google";
-// import { ReactNode } from "react";
-//
-//
-// const inter = Inter({ subsets: ["latin"] });
-//
-// export const metadata = {
-//   title: "Voice-to-Text SaaS",
-//   description: "Перетворюй голос на текст",
-// };
+
 "use client";
 import { useEffect } from "react";
 import { ReactNode } from "react";

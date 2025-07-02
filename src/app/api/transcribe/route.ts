@@ -49,10 +49,7 @@ export async function POST(req: Request) {
   const filePath = path.join(process.cwd(), "public/uploads", fileName);
 
   try {
-    // Запис файлу в public/uploads
     await fs.writeFile(filePath, buffer);
-
-    // Надсилання в OpenAI
     const transcription = await openai.audio.transcriptions.create({
       file: file as any,
       model: "whisper-1",

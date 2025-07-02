@@ -6,11 +6,6 @@ export async function GET(req: NextRequest) {
     console.log("record route HIT");
   const { userId } = await auth(req);
 
-
-//   if (!userId) {
-//     return NextResponse.json([], { status: 200 });
-//   }
-
   const user = await prisma.user.findUnique({
     where: { clerkId: userId },
   });

@@ -127,7 +127,7 @@ export default function DashboardPage() {
               download
               className="inline-block px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded text-sm text-gray-800 font-medium transition"
             >
-              ⬇️ Завантажити аудіофайл
+              Завантажити аудіофайл
             </a>
           </div>
         )}
