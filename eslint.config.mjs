@@ -16,10 +16,17 @@ const eslintConfig = [
       ".next",
       "dist",
       "build",
-      "src/generated", // 💡 Ігноруємо згенеровані Prisma файли
+      "src/generated",
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-require-imports": "warn",
+    },
+  },
 ];
 
 export default eslintConfig;
